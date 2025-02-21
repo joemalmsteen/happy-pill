@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i love u</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="heading-wrapper">
+            <h1 id="main-heading">To My Love,</h1>
+            <h1 id="name-heading" style="color:rgb(11, 164, 188);">Eric</h1>
+        </div>
+        <div class="new-text-wrapper">
+            <h1 class="new-text">You are my calm, my safest place,</h1> <!-- Change this text as needed -->
+        </div>
+        <div class="new-text-wrapper">
+            <h1 class="new-text">Your touch, your voice, the way you care,</h1> <!-- Change this text as needed -->
+        </div>
+        <div class="new-text-wrapper">
+            <h1 class="new-text">In every breath, I find you there.</h1> <!-- Change this text as needed -->
+        </div>
+        <div class="new-text-wrapper">
+            <h1 class="new-text">No matter where this life may go,</h1> <!-- Change this text as needed -->
+        </div>
+        <div class="new-text-wrapper">
+            <h1 class="new-text">I won't let go</h1> <!-- Change this text as needed -->
+        </div>
+        <div class="new-text-wrapper">
+            <h1 class="new-text">With every heartbeat, I am yours,</h1> <!-- Change this text as needed -->
+        </div>
+        <div class="new-text-wrapper">
+            <h1 class="new-text">Through endless time, through distant shores</h1> <!-- Change this text as needed -->
+        </div>
+        <div class="new-text-wrapper">
+            <h1 class="new-text">Forever sounds just right with you</h1> <!-- Change this text as needed -->
+        </div>
+    </div>
+
+    <!-- Heart Element for Transition -->
+    <div id="heart"></div>
+
+    <!-- Love Letter -->
+    <div class="valentines-day-card">
+        <input id="open" type="checkbox">
+        <label class="open" for="open"></label>
+      <div class="card-front">
+        <div class="note"> Open Here <3 </div>
+      </div>
+        
+        <div class="card-inside">
+          <div class="text-one">Happy our 7 months, my love so true</div>
+           <!-- Add Image Here -->
+        <img src="jooo.jpg" alt="A cute moment" class="card-image">
+          <div class="heart"></div>
+          <div class="smile"></div>
+          <div class="eyes"></div>
+      </div>
+      </div>
+
+      <audio id="bg-music" loop>
+        <source src="harvey.mp3" type="audio/mp3">
+    </audio>
+    
+
+
+</body>
+
+<script>
+    let loveShowerInterval; // Variable to store interval
+    
+    document.getElementById("open").addEventListener("change", function() {
+        if (this.checked) {
+            startLoveShower();
+        } else {
+            stopLoveShower();
+        }
+    });
+    
+    function startLoveShower() {
+        loveShowerInterval = setInterval(() => {
+            let love = document.createElement("div");
+            love.classList.add("love-emoji");
+            love.innerHTML = "❤️";
+            love.style.left = Math.random() * 100 + "vw"; // Random position
+            love.style.animationDuration = (Math.random() * 2 + 3) + "s"; // Random falling speed
+            document.body.appendChild(love);
+    
+            setTimeout(() => {
+                love.remove(); // Remove after animation
+            }, 5000);
+        }, 200); // New emoji every 200ms
+    }
+    
+    function stopLoveShower() {
+        clearInterval(loveShowerInterval); // Stop creating hearts
+    }
+
+    document.getElementById("open").addEventListener("change", function() {
+    let music = document.getElementById("bg-music");
+    if (this.checked) {
+        music.play();
+    } else {
+        music.pause();
+        music.currentTime = 0; // Reset music when card closes
+    }
+});
+
+</script>
+    
+    
+</html>

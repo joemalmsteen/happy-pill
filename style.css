@@ -1,0 +1,416 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #111;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    text-align: center;
+    margin: 0; /* Remove default margin */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 400vw;
+    position: relative;
+    text-align: center;
+}
+
+
+h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade-out animation */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+}
+
+#main-heading {
+    animation: fadeInUp 2s ease-out forwards;
+}
+
+#name-heading {
+    animation: fadeInUp 2s ease-out forwards;
+    animation-delay: 1s;
+}
+
+/* Hide new text initially */
+#new-text {
+    opacity: 0;
+}
+
+.heading-wrapper {
+    position: absolute;
+    top: 50%; /* Centers vertically */
+    left: 50%; /* Centers horizontally */
+    transform: translate(-50%, -50%); /* Adjusts for perfect centering */
+    text-align: center;
+    width: 100%;
+}
+
+
+
+.new-text-wrapper {
+    position: absolute;
+    top: 50%; /* Centers vertically */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+
+
+/* New text animation */
+@keyframes fadeInDelayed {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Heartbeat effect */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+/* Growing heart effect */
+@keyframes growHeart {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(50); /* Heart grows big enough to fill the screen */
+    }
+}
+
+/* Background color change */
+@keyframes backgroundChange {
+    0% {
+        background: white;
+    }
+    100% {
+        background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+    }
+}
+
+/* Center the heart */
+#heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #88196e, #ff8fab); /* Red to pink gradient */
+    clip-path: polygon(50% 15%, 80% 0, 100% 25%, 100% 60%, 50% 100%, 0 60%, 0 25%, 20% 0);
+    opacity: 0; /* Hidden at start */
+}
+
+
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Heart Animation */
+@keyframes expandHeart {
+    0% { transform: scale(1); }
+    100% { transform: scale(50); }
+}
+
+.valentines-day-card {
+    opacity: 0;  /* Hide initially */
+    transition: opacity 1.5s ease-in-out; /* Smooth fade-in effect */
+    width: 300px;  
+    height: 300px;
+    
+    position: absolute; /* Allows precise positioning */
+    top: 30%;  
+    left: 40%;
+    transform: translate(-50%, -50%); /* Moves it back by half its size */
+}
+
+
+
+
+input#open {
+    display: none;
+  }
+  
+  .card-front {
+    position: relative;
+    background-color: #fff0f3;
+    width: 300px;
+    height:300px;
+    transform-origin: left;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.15), 30px 0 50px rgba(0,0,0,0.3);
+    transition: .3s;
+  }
+  
+  .card-front:before {
+    content:"";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background-color: #d04e4e;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .card-inside {
+    position: absolute;
+    background-color: #fff0f3;
+    width: 300px;
+    height:300px;
+    z-index:-1;
+    left:0;
+    top:0;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,0.22), 100px 20px 100px rgba(0,0,0,0.1);
+  }
+  
+  .open {
+    position: absolute;
+    width: 300px;
+    height:300px;
+    left:0;
+    top:0;
+    background-color: transparent;
+    z-index:6;
+    cursor: pointer;
+  }
+  
+  #open:checked ~ .card-front {
+    transform: rotateY(-155deg);
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.13), 30px 0 50px rgba(0,0,0,0.1);
+  }
+  
+  #open:checked ~ .card-front:before {
+    z-index:5;
+    background-color: #fff0f3;
+    width:300px;
+    height:300px;
+    top:0;
+    left:0;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.1), 30px 0 50px rgba(0,0,0,0.1);
+  }
+  
+
+  .note {
+    position: relative;
+    width: 200px;
+    height: 150px;
+    background-color: #fff0f3;
+    top:75px;
+    left:65px;
+    color: #333;
+    font-size:30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    filter: drop-shadow(0 0 20px rgba(0,0,0,0.3));
+  }
+  
+  .note:before, .note:after {
+    position: absolute;
+    content:"";
+    background-color: #ba1c1c;
+    width: 40px;
+    height:40px;
+  }
+  
+  .note:before {
+    transform: rotate(-45deg);
+    top:-20px;
+    left:80px;
+  }
+  
+  .note:after {
+    border-radius:50%;
+    top:-35px;
+    left:65px;
+    box-shadow:30px 0 #ba1c1c;
+  }
+
+
+  .text-one {
+    position: absolute;
+    color: #333;
+    font-size: 25px;
+    top:30px;
+    width:300px;
+    text-align: center;
+  }
+  
+  .text-one:before, .text-one:after {
+    position: absolute;
+    left:5px;
+    text-align: center;
+    width:300px;
+  }
+  
+  
+  .heart {
+    position: relative;
+    background-color: #d04e4e;
+    height: 60px;
+    width:60px;
+    top:180px;
+    left:60px;
+    transform: rotate(-45deg);
+    animation: .8s beat infinite;
+  }
+    
+  .heart:before, .heart:after {
+    content:"";
+    background-color: #d04e4e;
+    border-radius:50%;
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    }
+    
+  .heart:before {
+    top:-30px;
+    left:0;
+  }
+    
+  .heart:after {
+    left:30px;
+    top:0;
+  }
+  
+  .smile {
+    position: absolute;
+    width:30px;
+    height:15px;
+    background-color: #333;
+    z-index:1;
+    border-radius: 0 0 100px 100px;
+    top:200px;
+    left:75px;
+    overflow: hidden;
+  }
+  
+  .smile:before {
+    content:"";
+    position: absolute;
+    border-radius:50%;
+    width:20px;
+    height:20px;
+    background-color: #030202;
+    top:5px;
+    left:5px;
+  }
+  
+  .eyes {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #333;
+    width:10px;
+    height:10px;
+    z-index:1;
+    top:190px;
+    left:105px;
+    box-shadow: -40px 0 #333;
+    transform-origin: 50%;
+    animation: close 2s infinite;
+  }
+  
+  @keyframes close {
+      0%, 100% {
+          transform: scale(1, .05);
+      }
+      5%, 95% {
+          transform: scale(1, 1);
+      }
+  }
+  
+  @keyframes beat {
+    0%, 40%, 100% {
+      transform: scale(1) rotate(-45deg);
+    }
+    25%, 60% {
+      transform: scale(1.1) rotate(-45deg);
+    }
+  }
+
+  .card-image {
+    width: 100px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    position: absolute;
+    top: 150px; /* Adjust positioning */
+    left: 70%;
+    transform: translateX(-50%); /* Center horizontally */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow effect */
+}
+
+.love-emoji {
+    position: fixed;
+    top: -50px;
+    font-size: 2rem; /* Adjust size */
+    opacity: 0.8;
+    animation: fall 5s linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
